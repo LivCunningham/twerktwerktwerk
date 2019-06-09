@@ -1,9 +1,20 @@
 import React, { Component } from 'react'
-import HelloWorld from './components/HelloWorld'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import AddEmployee from './page/AddEmployee'
+import GetEmployee from './components/GetEmployee'
 
 class App extends Component {
   render() {
-    return <HelloWorld />
+    return (
+      <>
+        <Router>
+          <Switch>
+            <Route path="/" exact component={AddEmployee} />
+            <Route path="/employee/:employee.id" component={GetEmployee} />
+          </Switch>
+        </Router>
+      </>
+    )
   }
 }
 
