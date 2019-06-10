@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Header from '../components/Header.js'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
@@ -42,11 +42,31 @@ export default function AddEmployee() {
               })
             }}
           />
+          <input
+            type="text"
+            placeholder="Fulltime or Part-time"
+            onChange={e => {
+              setEmployee(oldData => {
+                oldData.isFullTime = e.target.value
+                return oldData
+              })
+            }}
+          />
+          <input
+            type="text"
+            placeholder="Fulltime or Part-time"
+            onChange={e => {
+              setEmployee(oldData => {
+                oldData.isFullTime = e.target.value
+                return oldData
+              })
+            }}
+          />
 
           <button>+</button>
         </form>
       </section>
-      <Link to={`/GetEmployee/$[employee.id]`}>
+      <Link to={`/GetEmployee`}>
         <button>See Full List of Twerkers</button>
       </Link>
     </>
