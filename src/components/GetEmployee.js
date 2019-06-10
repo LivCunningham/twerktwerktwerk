@@ -20,12 +20,17 @@ export default function GetEmployee() {
   return (
     <>
       <section>
-        <ul>
+        <ul className="employee-listing">
           {employeeList.map(person => (
-            <li>
-              {person.firstName}
-              {person.lastName}
-            </li>
+            <tr>
+              <td> {person.firstName} </td>
+              <td> {person.lastName} </td>
+              <td> {person.birthday} </td>
+              <td> {person.hireDate} </td>
+              <td> {person.isFullTime} </td>
+              <td> {person.jobTitle} </td>
+              <td> {person.phoneNumber} </td>
+            </tr>
           ))}
         </ul>
       </section>

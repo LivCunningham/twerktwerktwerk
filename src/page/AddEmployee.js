@@ -24,7 +24,7 @@ export default function AddEmployee() {
         <form onSubmit={addATwerker}>
           <input
             type="text"
-            placeholder="first name"
+            placeholder="First Name"
             onChange={e => {
               setEmployee(oldData => {
                 oldData.firstName = e.target.value
@@ -34,7 +34,7 @@ export default function AddEmployee() {
           />
           <input
             type="text"
-            placeholder="last name"
+            placeholder="Last Name"
             onChange={e => {
               setEmployee(oldData => {
                 oldData.lastName = e.target.value
@@ -44,7 +44,7 @@ export default function AddEmployee() {
           />
           <input
             type="text"
-            placeholder="Fulltime or Part-time"
+            placeholder="Full-Time or Part-Time"
             onChange={e => {
               setEmployee(oldData => {
                 oldData.isFullTime = e.target.value
@@ -54,21 +54,70 @@ export default function AddEmployee() {
           />
           <input
             type="text"
-            placeholder="Fulltime or Part-time"
+            placeholder="Job Title"
             onChange={e => {
               setEmployee(oldData => {
-                oldData.isFullTime = e.target.value
+                oldData.jobTitle = e.target.value
                 return oldData
               })
             }}
           />
-
+          <input
+            type="text"
+            placeholder="Birthday"
+            onChange={e => {
+              setEmployee(oldData => {
+                oldData.birthday = e.target.value
+                return oldData
+              })
+            }}
+          />
+          <input
+            type="text"
+            placeholder="Hired Date"
+            onChange={e => {
+              setEmployee(oldData => {
+                oldData.hiredDate = e.target.value
+                return oldData
+              })
+            }}
+          />
+          <input
+            type="text"
+            placeholder="Job Description"
+            onChange={e => {
+              setEmployee(oldData => {
+                oldData.jobDescription = e.target.value
+                return oldData
+              })
+            }}
+          />
+          <input
+            type="text"
+            placeholder="Phone Number"
+            onChange={e => {
+              setEmployee(oldData => {
+                oldData.phoneNumber = e.target.value
+                return oldData
+              })
+            }}
+          />
+          <input
+            type="text"
+            placeholder="Address"
+            onChange={e => {
+              setEmployee(oldData => {
+                oldData.address = e.target.value
+                return oldData
+              })
+            }}
+          />
           <button>+</button>
         </form>
       </section>
-      <Link to={`/GetEmployee`}>
+      {/* <Link to={`/GetEmployee`}>
         <button>See Full List of Twerkers</button>
-      </Link>
+      </Link> */}
     </>
   )
 }
