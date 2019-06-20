@@ -27,11 +27,7 @@ export default function GetEmployee() {
                   <p className="last"> {person.lastName} </p>
                 </Link>
               </td>
-              <td> {person.birthday} </td>
-              <td> {person.hireDate} </td>
-              <td> {person.isFullTime} </td>
-              <td className="title"> {person.jobTitle} </td>
-              <td> {person.phoneNumber} </td>
+              <p className="title"> {person.jobTitle} </p>
             </tr>
           ))}
         </tbody>

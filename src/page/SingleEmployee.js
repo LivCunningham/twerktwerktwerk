@@ -3,6 +3,7 @@ import axios from 'axios'
 
 export default function SingleEmployee(props) {
   const [employee, setEmployee] = useState([])
+
   let id = props.match.params.personID
   const API_URL = `https://sdg-staff-directory-app.herokuapp.com/api/Liv%20Media/Employees/${id}`
 
@@ -14,6 +15,12 @@ export default function SingleEmployee(props) {
       // console.log({ setEmployee })
     })
   }, [])
+
+  const deleteEmployee = id => {
+    axios.delete(`${API_URL}`, employee).then(resp => {
+      setEmployee(oldEmployee => oldEmployee.filter(person => person.id !== id))
+    })
+  }
 
   return (
     <>
@@ -30,8 +37,8 @@ export default function SingleEmployee(props) {
         <li>
           <p>{employee.hireDate} </p>
         </li>
-        <li>
-          <p>It is {employee.isFullTime} that this employee is full-time.</p>
+        <li className="isFullTime">
+          <p>{employee.isFullTime ? 'Full-time' : 'Part-time'}</p>
         </li>
         <li className="title">
           <p>{employee.jobTitle} </p>
@@ -39,6 +46,9 @@ export default function SingleEmployee(props) {
         <li>
           <p>{employee.phoneNumber} </p>
         </li>
+        <button classname="Fire-Me" onClick={deleteEmployee}>
+          Fire Me!
+        </button>
       </ul>
     </>
   )

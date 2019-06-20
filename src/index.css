@@ -42,3 +42,8 @@ header {
   text-align: center;
   flex-direction: column;
 }
+
+.Fire-Me {
+  display: flex;
+  justify-content: center;
+}
