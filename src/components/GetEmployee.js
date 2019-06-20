@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 const API_URL =
   'https://sdg-staff-directory-app.herokuapp.com/api/Liv%20Media/Employees'
@@ -11,29 +12,30 @@ export default function GetEmployee() {
     console.log({ listEmployee })
     axios.get(`${API_URL}`, listEmployee).then(resp => {
       listEmployee(resp.data)
-      debugger
-      // listEmployee(oldList => oldList.concat(resp.data))
-      // employeeList = resp.data
     })
   }, [])
 
   return (
     <>
-      <section>
-        <ul className="employee-listing">
+      <table>
+        <tbody>
           {employeeList.map(person => (
-            <tr>
-              <td> {person.firstName} </td>
-              <td> {person.lastName} </td>
+            <tr className="employee-listing" key={person.id}>
+              <td>
+                <Link to={`/SingleEmployee/${person.id}`}>
+                  <p className="first"> {person.firstName} </p>
+                  <p className="last"> {person.lastName} </p>
+                </Link>
+              </td>
               <td> {person.birthday} </td>
               <td> {person.hireDate} </td>
               <td> {person.isFullTime} </td>
-              <td> {person.jobTitle} </td>
+              <td className="title"> {person.jobTitle} </td>
               <td> {person.phoneNumber} </td>
             </tr>
           ))}
-        </ul>
-      </section>
+        </tbody>
+      </table>
     </>
   )
 }

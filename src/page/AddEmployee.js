@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Header from '../components/Header.js'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
 
 const API_URL =
   'https://sdg-staff-directory-app.herokuapp.com/api/Liv%20Media/Employees'
@@ -115,9 +114,6 @@ export default function AddEmployee() {
           <button>+</button>
         </form>
       </section>
-      {/* <Link to={`/GetEmployee`}>
-        <button>See Full List of Twerkers</button>
-      </Link> */}
     </>
   )
 }
